@@ -1,5 +1,4 @@
 name: Build SHAKE VPN Android APK
-
 on:
   workflow_dispatch:
   push:
@@ -10,7 +9,6 @@ jobs:
   build:
     name: Build Android APK
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,7 +25,7 @@ jobs:
           gradle-version: '8.9'
 
       - name: Build SHAKE VPN APK
-        run: gradle assembleDebug
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
